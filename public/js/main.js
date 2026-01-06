@@ -4,7 +4,18 @@ const boxTitleInput = document.getElementById('boxTitle');
 const boxColourSelect = document.getElementById('boxColour');
 const boxesShowAll = document.getElementById('boxesShowAll');
 
-const boxColours = ['light', 'pink', 'blue', 'dark'];
+let boxColours = [];
+let noteColours = [];
+
+function fetchColourConfig() {
+    fetch('/config/colours')
+        .then(res => res.json())
+        .then(data => {
+            boxColours = data.boxColours;
+            noteColours = data.noteColours;
+        })
+        .catch(err => console.log('Error fetching colours:', err));
+};
 
 
 // on DOM Content Loaded
