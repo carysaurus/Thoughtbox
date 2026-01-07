@@ -1,3 +1,238 @@
 /* colourThemes.css */
 
-:root {}
+:root {
+    /* light theme */
+    --light-border: rgb(238, 233, 230);
+    --light-background: rgb(252, 250, 250);
+    --light-background-note: rgb(255, 255, 255);
+
+    /* pink theme */
+    --pink-border: rgb(168, 120, 146);
+    --pink-background: rgb(232, 211, 221);
+    --pink-background-note: rgb(228, 199, 213);
+
+    /* blue theme */
+    --blue-border: rgb(127, 161, 176);
+    --blue-background: rgb(216, 228, 236);
+    --blue-background-note: rgb(192, 216, 233);
+
+    /* green theme */
+    --green-border: rgb(106, 132, 104);
+    --green-background: rgb(207, 218, 206);
+    --green-background-note: rgb(189, 221, 186);
+
+
+    /* orange theme */
+    --orange-border: rgb(168, 91, 36);
+    --orange-background: rgb(233, 196, 169);
+    --orange-background-note: rgb(238, 183, 144);
+
+    /* purple theme */
+    --purple-border: rgb(112, 16, 131);
+    --purple-background: rgb(210, 195, 214);
+    --purple-background-note: rgb(222, 202, 228);
+
+    /* teal theme */
+    --teal-border: rgb(31, 129, 106);
+    --teal-background: rgb(191, 220, 214);
+    --teal-background-note: rgb(176, 234, 222);
+
+    /* gold theme */
+    --gold-border: rgb(181, 139, 12);
+    --gold-background: rgb(244, 229, 190);
+    --gold-background-note: rgb(244, 216, 145);
+}
+
+/* Colour themes */
+.box.light {
+    background-color: var(--light-background);
+    border-radius: .5rem;
+    border-top: 4px double var(--main-border);
+    border-bottom: 4px double var(--main-border);
+    border-left: 1px solid var(--main-border);
+    border-right: 1px solid var(--main-border);
+    color: var(--font-dark);
+}
+
+.note.light {
+    background-color: var(--light-background-note);
+    border-top: 2px solid var(--light-border);
+    border-bottom: 2px solid var(--light-border);
+    color: var(--font-dark);
+}
+
+.line.light {
+    height: 1px;
+    width: 100%;
+    border-bottom: 1px dashed var(--light-border);
+    margin-bottom: .5rem;
+}
+
+
+.box.pink {
+    background-color: var(--pink-background);
+    border-radius: .5rem;
+    border-top: 4px double var(--pink-border);
+    border-bottom: 4px double var(--pink-border);
+    border-left: 1px solid var(--pink-border);
+    border-right: 1px solid var(--pink-border);
+    color: var(--font-dark);
+}
+
+.note.pink {
+    background-color: var(--pink-background-note);
+    border-top: 2px solid var(--pink-border);
+    border-bottom: 2px solid var(--pink-border);
+    color: var(--font-dark);
+}
+
+.line.pink {
+    height: 1px;
+    width: 100%;
+    border-bottom: 1px dashed var(--pink-border);
+    margin-bottom: .5rem;
+}
+
+.box.blue {
+    background-color: var(--blue-background);
+    border-radius: .5rem;
+    border-top: 4px double var(--blue-border);
+    border-bottom: 4px double var(--blue-border);
+    border-left: 1px solid var(--blue-border);
+    border-right: 1px solid var(--blue-border);
+    color: var(--font-dark);
+}
+
+.note.blue {
+    background-color: var(--blue-background-note);
+    border-top: 2px solid var(--blue-border);
+    border-bottom: 2px solid var(--blue-border);
+    color: var(--font-dark);
+}
+
+.line.blue {
+    height: 1px;
+    width: 100%;
+    border-bottom: 1px dashed var(--blue-border);
+    margin-bottom: .5rem;
+}
+
+.box.green {
+    background-color: var(--green-background);
+    border-radius: .5rem;
+    border-top: 4px double var(--green-border);
+    border-bottom: 4px double var(--green-border);
+    border-left: 1px solid var(--green-border);
+    border-right: 1px solid var(--green-border);
+    color: var(--font-dark);
+}
+
+.note.green {
+    background-color: var(--green-background-note);
+    border-top: 2px solid var(--green-border);
+    border-bottom: 2px solid var(--green-border);
+    color: var(--font-dark);
+}
+
+.line.green {
+    height: 1px;
+    width: 100%;
+    border-bottom: 1px dashed var(--green-border);
+    margin-bottom: .5rem;
+}
+
+.box.orange {
+    background-color: var(--orange-background);
+    border-radius: .5rem;
+    border-top: 4px double var(--orange-border);
+    border-bottom: 4px double var(--orange-border);
+    border-left: 1px solid var(--orange-border);
+    border-right: 1px solid var(--orange-border);
+    color: var(--font-dark);
+}
+
+.note.orange {
+    background-color: var(--orange-background-note);
+    border-top: 2px solid var(--orange-border);
+    border-bottom: 2px solid var(--orange-border);
+    color: var(--font-dark);
+}
+
+.line.orange {
+    height: 1px;
+    width: 100%;
+    border-bottom: 1px dashed var(--orange-border);
+    margin-bottom: .5rem;
+}
+
+.box.purple {
+    background-color: var(--purple-background);
+    border-radius: .5rem;
+    border-top: 4px double var(--purple-border);
+    border-bottom: 4px double var(--purple-border);
+    border-left: 1px solid var(--purple-border);
+    border-right: 1px solid var(--purple-border);
+    color: var(--font-dark);
+}
+
+.note.purple {
+    background-color: var(--purple-background-note);
+    border-top: 2px solid var(--purple-border);
+    border-bottom: 2px solid var(--purple-border);
+    color: var(--font-dark);
+}
+
+.line.purple {
+    height: 1px;
+    width: 100%;
+    border-bottom: 1px dashed var(--purple-border);
+    margin-bottom: .5rem;
+}
+
+.box.teal {
+    background-color: var(--teal-background);
+    border-radius: .5rem;
+    border-top: 4px double var(--teal-border);
+    border-bottom: 4px double var(--teal-border);
+    border-left: 1px solid var(--teal-border);
+    border-right: 1px solid var(--teal-border);
+    color: var(--font-dark);
+}
+
+.note.teal {
+    background-color: var(--teal-background-note);
+    border-top: 2px solid var(--teal-border);
+    border-bottom: 2px solid var(--teal-border);
+    color: var(--font-dark);
+}
+
+.line.teal {
+    height: 1px;
+    width: 100%;
+    border-bottom: 1px dashed var(--teal-border);
+    margin-bottom: .5rem;
+}
+
+.box.gold {
+    background-color: var(--gold-background);
+    border-radius: .5rem;
+    border-top: 4px double var(--gold-border);
+    border-bottom: 4px double var(--gold-border);
+    border-left: 1px solid var(--gold-border);
+    border-right: 1px solid var(--gold-border);
+    color: var(--font-dark);
+}
+
+.note.gold {
+    background-color: var(--gold-background-note);
+    border-top: 2px solid var(--gold-border);
+    border-bottom: 2px solid var(--gold-border);
+    color: var(--font-dark);
+}
+
+.line.gold {
+    height: 1px;
+    width: 100%;
+    border-bottom: 1px dashed var(--gold-border);
+    margin-bottom: .5rem;
+}

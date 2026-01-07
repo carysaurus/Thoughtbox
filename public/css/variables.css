@@ -7,10 +7,7 @@
 
     /* main colours */
     --main-background: rgb(240, 240, 240);
-    --main-background-light: rgb(252, 250, 250);
-    --main-background-mid: rgba(40, 39, 39, 0.127);
     --main-border: rgb(181, 172, 167);
-
 
     /* buttons */
     --button-background: rgb(226, 209, 200);
@@ -20,20 +17,7 @@
     --font-dark: rgb(44, 44, 44);
     --font-light: rgb(246, 246, 246);
 
-    /* light theme */
-    --light-border: rgb(238, 233, 230);
-    --light-background: rgb(251, 246, 243);
-
-    /* pink theme */
-    --pink-border: rgb(196, 136, 169);
-    --pink-background: rgb(245, 217, 232);
-
-    /* blue theme */
-    --blue-border: rgb(166, 200, 214);
-    --blue-background: rgb(220, 237, 246);
-
-    /* dark theme */
-    --dark-border: rgb(82, 73, 68);
-    --dark-background: rgb(112, 103, 99);
-
+    /* other */
+    --darkwash: rgba(40, 39, 39, 0.127);
+    --lightwash: rgba(255, 255, 255, 0.445);
 }

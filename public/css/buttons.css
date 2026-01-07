@@ -37,11 +37,37 @@ button:focus .feather {
     position: absolute;
     top: .5rem;
     right: .5rem;
-}
-
-.editBoxBtn {
     width: 1.5rem;
     height: 1.5rem;
+}
+
+.editNoteBtn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.expandNoteBtn,
+.collapseNoteBtn {
+    top: .5rem;
+    right: .5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.collapseNoteBtn {
+    display: none;
+}
+
+.tagIcon {
+    pointer-events: none;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 0;
+    background: 0;
+
 }
 
 .newNoteBtn {

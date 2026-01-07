@@ -1,0 +1,26 @@
+/* thoughts.css */
+
+.note {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.noteHead {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.noteBody {
+    /* display: none; */
+    position: relative;
+}
+
+.noteContent {
+    padding-top: .5rem;
+    padding-bottom: .25rem;
+}

@@ -1,15 +1,23 @@
 /* base.css
  */
 
+html,
 body {
+   height: 100%;
+   margin: 0;
    font-family: Raleway;
+}
+
+body {
    background-color: var(--page-background);
+   display: flex;
+   flex-direction: column;
 }
 
 header {
    padding-left: 2rem;
    margin-right: 2rem;
-   padding-top: 2rem;
+   padding-top: 1.5rem;
    display: flex;
    flex-direction: column;
    gap: .75rem;
@@ -19,7 +27,8 @@ main {
    background-color: var(--main-background);
    border-top: 4px double var(--main-border);
    border-bottom: 4px double var(--main-border);
-   margin-top: 3rem;
+   margin-top: 1.5rem;
+   flex: 1
 }
 
 #boxContainer {
@@ -39,12 +48,9 @@ main {
    grid-template-rows: 2;
    grid-column-gap: 1rem;
    grid-row-gap: 0px;
-   /* display: flex;
-   flex-direction: row;
-   gap: 1rem; */
    width: fit-content;
    padding: .5rem 1rem;
-   background-color: var(--main-background-light);
+   background-color: var(--light-background);
    border-radius: .5rem;
    border-top: 4px double var(--main-border);
    border-bottom: 4px double var(--main-border);
@@ -67,4 +73,18 @@ main {
    display: flex;
    align-items: center;
    justify-content: center;
+}
+
+footer {
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-end;
+   align-items: flex-end;
+   gap: 1.5rem;
+   padding: .5rem 1rem 1rem .5rem;
+}
+
+footer p {
+   font-weight: 300;
+   font-size: 0.8rem;
 }

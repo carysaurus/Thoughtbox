@@ -17,6 +17,13 @@ h2 {
     font-family: 'Playfair Display';
 }
 
+h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    font-family: 'Playfair Display';
+}
+
+
 header p {
     font-style: italic;
     max-width: 500px;

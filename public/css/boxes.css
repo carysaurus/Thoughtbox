@@ -32,7 +32,7 @@
 }
 
 .editBoxForm {
-    background-color: var(--main-background-mid);
+    background-color: var(--darkwash);
     padding: 1rem;
     margin: .5rem -1rem;
     display: none;
@@ -45,45 +45,4 @@
     display: flex;
     flex-direction: row;
     gap: .25rem;
-}
-
-/* Colour themes */
-.light {
-    background-color: var(--main-background-light);
-    border-radius: .5rem;
-    border-top: 4px double var(--main-border);
-    border-bottom: 4px double var(--main-border);
-    border-left: 1px solid var(--main-border);
-    border-right: 1px solid var(--main-border);
-    color: var(--font-dark);
-}
-
-.pink {
-    background-color: var(--pink-background);
-    border-radius: .5rem;
-    border-top: 4px double var(--pink-border);
-    border-bottom: 4px double var(--pink-border);
-    border-left: 1px solid var(--pink-border);
-    border-right: 1px solid var(--pink-border);
-    color: var(--font-dark);
-}
-
-.blue {
-    background-color: var(--blue-background);
-    border-radius: .5rem;
-    border-top: 4px double var(--blue-border);
-    border-bottom: 4px double var(--blue-border);
-    border-left: 1px solid var(--blue-border);
-    border-right: 1px solid var(--blue-border);
-    color: var(--font-dark);
-}
-
-.dark {
-    background-color: var(--dark-background);
-    border-radius: .5rem;
-    border-top: 4px double var(--dark-border);
-    border-bottom: 4px double var(--dark-border);
-    border-left: 1px solid var(--dark-border);
-    border-right: 1px solid var(--dark-border);
-    color: var(--font-light);
 }
