@@ -1,8 +1,11 @@
 // buttons.js
+import {
+    setEditNoteMode
+} from "./notes/editNote.js";
+
 let currentBoxId = null;
 let setNoteType = null;
 let currentBoxColour = null;
-
 
 
 // --------------------------------------
@@ -35,42 +38,38 @@ const boxMenuMainBtns = document.querySelectorAll('.boxMenuMainBtn');
 const editBoxBtns = document.querySelectorAll('.editBoxBtn');
 const moveBoxBtns = document.querySelectorAll('.moveBoxBtn');
 const archiveBoxBtns = document.querySelectorAll('.archiveBoxBtn');
-const deleteBoxBtns = document.querySelectorAll('.deleteBoxBtn');
 const newNoteBtns = document.querySelectorAll('.newNoteBtn');
 
 // Open Menu for Individual Box
 boxMenuMainBtns.forEach(button => {
     button.addEventListener('click', () => {
-        const boxId = button.dataset.id;
+        const boxId = button.dataset.boxId;
         toggleBoxMenuVis(boxId);
     })
 })
 window.toggleBoxMenuVis = function (id) {
-    const boxItem = document.querySelector(`.box[data-id="${id}"]`);
-    const boxMenu = boxItem.querySelector('.boxMenuBtns')
+    const boxMenu = document.querySelector(`.boxMenuBtns[data-box-id="${id}"]`);
     boxMenu.classList.toggle('collapsed');
 };
 
 // Toggle Box Edit Form
 editBoxBtns.forEach(button => {
     button.addEventListener('click', () => {
-        const boxId = button.dataset.id;
+        const boxId = button.dataset.boxId;
         toggleBoxMenuVis(boxId);
         toggleBoxEditForm(boxId);
     })
 });
 
 window.toggleBoxEditForm = function (id) {
-    const boxItem = document.querySelector(`.box[data-id="${id}"]`);
-    const boxEditForm = boxItem.querySelector('.editBoxForm')
+    const boxEditForm = document.querySelector(`.editBoxForm[data-box-id="${id}"]`);
     boxEditForm.classList.toggle('collapsed');
-
 };
 
 // Re-order Boxes -- to be updated once function is implemented
 moveBoxBtns.forEach(button => {
     button.addEventListener('click', () => {
-        const boxId = button.dataset.id;
+        const boxId = button.dataset.boxId;
         console.log(`Move box ${boxId}`);
     })
 });
@@ -78,19 +77,10 @@ moveBoxBtns.forEach(button => {
 // Archive Boxes -- to be updated once function is implemented
 archiveBoxBtns.forEach(button => {
     button.addEventListener('click', () => {
-        const boxId = button.dataset.id;
+        const boxId = button.dataset.boxId;
         console.log(`Archive box ${boxId}`);
     })
 });
-
-// Re-order Boxes -- to be updated once function is implemented
-deleteBoxBtns.forEach(button => {
-    button.addEventListener('click', () => {
-        const boxId = button.dataset.id;
-        console.log(`Delete box ${boxId}`);
-    })
-});
-
 
 // --------------------------------------
 // Note Form Buttons
@@ -106,7 +96,7 @@ const returnTypeBtn = document.getElementById("returnTypeBtn");
 // Add new Note to Box
 newNoteBtns.forEach(button => {
     button.addEventListener('click', () => {
-        currentBoxId = button.dataset.id;
+        currentBoxId = button.dataset.boxId;
         currentBoxColour = button.dataset.colour;
 
         document.getElementById('noteBoxId').value = currentBoxId;
@@ -122,13 +112,11 @@ cancelNoteBtn.addEventListener('click', () => {
     noteTypeForm.classList.add('collapsed');
     noteContentForm.classList.add('collapsed');
 })
-
 returnTypeBtn.addEventListener('click', () => {
     noteContentForm.classList.add('collapsed');
     noteTypeForm.classList.remove('collapsed');
     setNoteType = null;
 })
-
 noteTextBtn.addEventListener('click', () => {
     setNoteType = 'text';
     document.getElementById('noteType').value = setNoteType;
@@ -144,16 +132,59 @@ noteTextBtn.addEventListener('click', () => {
 const expandNoteBtns = document.querySelectorAll('.expandNoteBtn');
 const collapseNoteBtns = document.querySelectorAll('.collapseNoteBtn');
 const noteMenuMainBtns = document.querySelectorAll('.noteMenuMainBtn');
+const editNoteBtns = document.querySelectorAll('.editNoteBtn');
+
 
 noteMenuMainBtns.forEach(button => {
     button.addEventListener('click', () => {
-        const noteId = button.dataset.id;
+        const noteId = button.dataset.noteId;
         toggleNoteMenuVis(noteId);
     })
 });
 
 window.toggleNoteMenuVis = function (id) {
-    const noteItem = document.querySelector(`.noteMenu[data-id="${id}"]`);
-    const noteMenu = noteItem.querySelector('.noteMenuBtns')
+    const noteMenu = document.querySelector(`.noteMenuBtns[data-note-id="${id}"]`);
     noteMenu.classList.toggle('collapsed');
 };
+
+expandNoteBtns.forEach(button => {
+    button.addEventListener('click', () => {
+        const noteId = button.dataset.noteId;
+        expandNoteBody(noteId, button);
+    })
+});
+collapseNoteBtns.forEach(button => {
+    button.addEventListener('click', () => {
+        const noteId = button.dataset.noteId;
+        collapseNoteBody(noteId, button);
+    })
+});
+export function expandNoteBody(id, button) {
+    const noteBody = document.querySelector(`.noteBody[data-note-id="${id}"]`);
+    const collapseBtn = document.querySelector(`.collapseNoteBtn[data-note-id="${id}"]`);
+
+    noteBody.classList.remove('collapsed');
+    collapseBtn.classList.remove('collapsed');
+    button.classList.add('collapsed');
+}
+export function collapseNoteBody(id, button) {
+    const noteBody = document.querySelector(`.noteBody[data-note-id="${id}"]`);
+    const expandBtn = document.querySelector(`.expandNoteBtn[data-note-id="${id}"]`);
+
+    noteBody.classList.add('collapsed');
+    expandBtn.classList.remove('collapsed');
+    button.classList.add('collapsed');
+}
+
+editNoteBtns.forEach(button => {
+    button.addEventListener('click', () => {
+        const note = {
+            _id: button.dataset.noteId,
+            title: button.dataset.noteTitle,
+            colour: button.dataset.noteColour,
+            type: button.dataset.noteType,
+            text: button.dataset.noteText
+        }
+        setEditNoteMode(note);
+    })
+});

@@ -69,7 +69,66 @@ router.post('/', async (req, res) => {
 // --------------------------------------
 // Update Existing Note
 // --------------------------------------
-// 
+
+
+router.put("/edit/:id", async (req, res) => {
+    try {
+        const {
+            noteTitle,
+            noteColour,
+            noteType,
+            noteText,
+        } = req.body;
+
+        const updateData = {
+            title: noteTitle,
+            colour: noteColour
+        };
+        if (noteType === 'text') {
+            updateData.text = noteText;
+        };
+
+        await Note.findByIdAndUpdate(req.params.id, updateData);
+
+        res.redirect('/');
+
+    } catch (error) {
+        console.error('Error updating Box:', error);
+        res.status(500).send('Failed to update Box');
+    }
+});
+
+// Update Collasped State
+router.put('/collapse/:id', async (req, res) => {
+    try {
+        const collapsed = req.body.collapsed === 'true';
+        await Note.findByIdAndUpdate(req.params.id, {
+            collapsed
+        });
+        res.sendStatus(204);
+    } catch (err) {
+        console.error('Error updating Thought collapse state:', err);
+        res.status(500).send('Failed to update Thought state');
+    }
+});
+
+// Archive Note
+router.put('/archive/:id', async (req, res) => {
+    try {
+        const archived = req.body.archived === 'true';
+        await Note.findByIdAndUpdate(req.params.id, {
+            archived
+        });
+        res.sendStatus(204);
+        res.redirect('/');
+    } catch (err) {
+        console.error('Error updating Thought collapse state:', err);
+        res.status(500).send('Failed to update Thought state');
+    }
+});
+
+
+
 
 // --------------------------------------
 // Delete a Note

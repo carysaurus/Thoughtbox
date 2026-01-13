@@ -35,7 +35,7 @@ const boxSchema = new Schema({
         type: Boolean,
         required: true,
         default: false,
-    }
+    },
 });
 
 const Box = mongoose.model('Box', boxSchema);

@@ -11,21 +11,7 @@ const {
 // --------------------------------------
 // Fetch All Boxes
 // --------------------------------------
-// router.get('/', async (req, res) => {
-//     try {
-//         const userBoxes = await Box.find({
-//             archived: false
-//         });
 
-//         // Update to filter by UserId once User feature is functional
-
-//         res.render('boxes', {
-//             userBoxes
-//         });
-//     } catch (error) {
-//         console.error('Error fetching user Boxes:', error);
-//     }
-// });
 
 // --------------------------------------
 // Create New Box

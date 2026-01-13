@@ -1,23 +1,24 @@
 <!-- boxMenu.ejs -->
 
 <div class="boxMenu">
-        <button type="button" class="boxMenuMainBtn" data-id="<%= box._id %>" aria-label="Box Menu"><i
+        <button type="button" class="boxMenuMainBtn" data-box-id="<%= box._id %>" aria-label="Box Menu"><i
                         data-feather="menu"></i></button>
 
-        <div class="boxMenuBtns collapsed <%= box.colour %>">
+        <div class="boxMenuBtns collapsed <%= box.colour %>" data-box-id="<%= box._id %>">
 
-                <button type="button" class="editBoxBtn" title="Edit Box" data-id="<%= box._id %>"
+                <button type="button" class="editBoxBtn" title="Edit Box" data-box-id="<%= box._id %>"
                         aria-label="Edit Box"><i data-feather="edit"></i></button>
-                <button type="button" class="moveBoxBtn" title="Move Box" data-id="<%= box._id %>"
+                <button type="button" class="moveBoxBtn" title="Move Box" data-box-id="<%= box._id %>"
                         aria-label="Move Box"><i data-feather="move"></i></button>
 
-                <button type="button" class="archiveBoxBtn" title="Send to Storage (Archive)" data-id="<%= box._id %>"
-                        aria-label="Send to Storage (Archive)"><i data-feather="archive"></i></button>
+                <button type="button" class="archiveBoxBtn" title="Send to Storage (Archive)"
+                        data-box-id="<%= box._id %>" aria-label="Send to Storage (Archive)"><i
+                                data-feather="archive"></i></button>
 
                 <form class="deleteBox" data-box-id="<%= box._id %>" method="POST"
                         action="/boxes/delete/<%= box._id %>?_method=DELETE">
                         <button type="submit" class="deleteBoxBtn" title="Delete Box (Permanent)"
-                                data-id="<%= box._id %>" aria-label="
+                                data-box-id="<%= box._id %>" aria-label="
             Delete Box (Permanent)"><i data-feather="trash-2"></i></button>
                 </form>
         </div>

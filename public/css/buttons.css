@@ -59,7 +59,7 @@ button.hidden {
 }
 
 /* -------------------------------------- */
-/* User Box Buttons */
+/* Box Buttons */
 /* -------------------------------------- */
 .editBoxBtn {
     grid-area: 1 / 1 / 2 / 2;
@@ -115,6 +115,7 @@ button.hidden {
 .expandNoteBtn.collapsed,
 .collapseNoteBtn.collapsed {
     max-height: 0;
+    max-width: 0;
     opacity: 0;
     pointer-events: none;
     padding: 0;

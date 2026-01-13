@@ -1,26 +1,30 @@
 <!-- note.ejs -->
 
-<div class="note <%= note.colour %>" box-id="<%= box._id %>" note-id="<%= note._id %>">
+<div class="note <%= note.colour %>" data-box-id="<%= box._id %>" data-note-id="<%= note._id %>">
 
     <div class="noteHead">
         <h3><%= note.title %></h3>
-        <button type="button" class="expandNoteBtn"><i data-feather="chevrons-down"></i></button>
-        <button type="button" class="collapseNoteBtn"><i data-feather="chevrons-up"></i></button>
-        <%- include('./noteMenu') %>
+        <form class="noteExpandCollapseBtns" data-note-id="<%= note._id %>" method="POST"
+            action="/notes/collapse/<%= note._id %>?_method=PUT">
+            <button type="submit" class="expandNoteBtn <%= note.collapsed ? '' : 'collapsed' %>" name="collapsed"
+                value="false" data-note-id="<%= note._id %>"><i data-feather="chevrons-down"></i></button>
+            <button type="submit" class="collapseNoteBtn <%= note.collapsed ? 'collapsed' : '' %>" name="collapsed"
+                value="true" data-note-id="<%= note._id %>"><i data-feather="chevrons-up"></i></button>
+        </form>
+
+        <%- include('./noteMenu', { boxId: box._id, note }) %>
     </div>
-    <div class="noteBody">
+    <div class="noteBody <%= note.collapsed ? 'collapsed' : '' %>" data-note-id="<%= note._id %>">
         <div class="line <%= note.colour %>">
         </div>
         <div class="noteContent">
             <p> <%= note.text %></p>
         </div>
-
-
     </div>
-    <div class="noteTags">
+    <div class=" noteTags" data-note-id="<%= note._id %>">
         <div class="line <%= note.colour %>"></div>
 
         <button type="button" class="tagIcon"><i data-feather="tag"></i></button>
-        <div class="listTags"></div>
+        <div class="listTags" data-note-id="<%= note._id %>"></div>
     </div>
 </div>

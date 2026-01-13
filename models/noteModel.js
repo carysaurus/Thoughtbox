@@ -97,6 +97,11 @@ const noteSchema = new Schema({
         default: 0,
         required: true,
     },
+    collapsed: {
+        type: Boolean,
+        required: true,
+        default: true,
+    },
 }, {
     timestamps: true
 });

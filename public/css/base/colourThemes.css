@@ -54,7 +54,8 @@
     color: var(--font-dark);
 }
 
-.boxMenuBtns.Light {
+.boxMenuBtns.Light,
+.noteMenuBtns.Light {
     background-color: var(--boxMenuBg);
     border-radius: .5rem;
     border: 2px solid var(--main-border);
@@ -85,7 +86,8 @@
     color: var(--font-dark);
 }
 
-.boxMenuBtns.Pink {
+.boxMenuBtns.Pink,
+.noteMenuBtns.Pink {
     background-color: var(--boxMenuBg);
     border-radius: .5rem;
     border: 1px solid var(--pink-border);
@@ -116,7 +118,8 @@
     color: var(--font-dark);
 }
 
-.boxMenuBtns.Blue {
+.boxMenuBtns.Blue,
+.noteMenuBtns.Blue {
     background-color: var(--boxMenuBg);
     border-radius: .5rem;
     border: 1px solid var(--blue-border);
@@ -147,7 +150,8 @@
     color: var(--font-dark);
 }
 
-.boxMenuBtns.Green {
+.boxMenuBtns.Green,
+.noteMenuBtns.Green {
     background-color: var(--boxMenuBg);
     border-radius: .2rem;
     border: 1px solid var(--green-border);
@@ -178,7 +182,8 @@
     color: var(--font-dark);
 }
 
-.boxMenuBtns.Orange {
+.boxMenuBtns.Orange,
+.noteMenuBtns.Orange {
     background-color: var(--boxMenuBg);
     border-radius: .5rem;
     border: 1px solid var(--orange-border);
@@ -209,7 +214,8 @@
     color: var(--font-dark);
 }
 
-.boxMenuBtns.Purple {
+.boxMenuBtns.Purple,
+.noteMenuBtns.Purple {
     background-color: var(--boxMenuBg);
     border-radius: .5rem;
     border: 1px solid var(--purple-border);
@@ -240,7 +246,8 @@
     color: var(--font-dark);
 }
 
-.boxMenuBtns.Teal {
+.boxMenuBtns.Teal,
+.noteMenuBtns.Teal {
     background-color: var(--boxMenuBg);
     border-radius: .5rem;
     border: 1px solid var(--teal-border);
@@ -271,7 +278,8 @@
     color: var(--font-dark);
 }
 
-.boxMenuBtns.Gold {
+.boxMenuBtns.Gold,
+.noteMenuBtns.Gold {
     background-color: var(--boxMenuBg);
     border-radius: .5rem;
     border: 1px solid var(--gold-border);

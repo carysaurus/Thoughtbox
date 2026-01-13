@@ -1,6 +1,6 @@
 <!-- box.ejs -->
 
-<div class="box <%= box.colour %>" data-id="<%= box._id %>">
+<div class="box <%= box.colour %>" data-box-id="<%= box._id %>">
 
     <h2><%= box.title %></h2>
     <!-- editBoxForm partials will go here -->
@@ -14,6 +14,6 @@
 
     </div>
 
-    <button type="button" class="newNoteBtn" data-id="<%= box._id %>" data-colour="<%= box.colour %>"
+    <button type="button" class="newNoteBtn" data-box-id="<%= box._id %>" data-colour="<%= box.colour %>"
         aria-label="Add Thought to Box"><i data-feather="plus"></i><i data-feather="message-square"></i></button>
 </div>

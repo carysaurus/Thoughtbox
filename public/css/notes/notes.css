@@ -25,8 +25,19 @@
 
 }
 
+.noteExpandCollapseBtns {
+    position: relative;
+}
+
+.noteExpandCollapseBtns>* {
+    position: absolute;
+    left: 0;
+}
+
+
 .noteBody {
     position: relative;
+    margin-top: .5rem;
 }
 
 .noteContent {
@@ -37,4 +48,27 @@
 
 .noteTags {
     display: none;
+}
+
+
+/* -------------------------------------- */
+/* Collapsed Styles */
+/* -------------------------------------- */
+
+.noteBody>* {
+    opacity: 1;
+    transform: translateY(0);
+    transition: max-height 0.3s ease, opacity 0.2s ease, padding 0.2s ease;
+}
+
+.noteBody.collapsed {
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    padding: 0;
+}
+
+.noteBody.collapsed>* {
+    opacity: 0;
+    transform: translateY(-4px);
 }

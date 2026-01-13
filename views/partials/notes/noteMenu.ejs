@@ -1,23 +1,29 @@
 <!-- noteMenu.ejs -->
 
-<div class="noteMenu" data-id="<%= note._id %>">
-        <button type="button" class="noteMenuMainBtn" data-id="<%= note._id %>" aria-label=" Thought Menu"><i
+<div class="noteMenu" data-note-id="<%= note._id %>">
+        <button type="button" class="noteMenuMainBtn" data-note-id="<%= note._id %>" aria-label="Thought Menu"><i
                         data-feather="menu"></i></button>
 
-        <div class="noteMenuBtns collapsed">
+        <div class="noteMenuBtns collapsed <%= note.colour %>" data-note-id="<%= note._id %>">
 
-                <button type="button" class="editNoteBtn" title="Edit Thought" data-id="<%= note._id %>"
-                        aria-label="Edit Thought"><i data-feather="edit"></i></button>
-                <button type="button" class="moveNoteBtn" title="Move Thought" data-id="<%= note._id %>"
+                <button type="button" class="editNoteBtn" title="Edit Thought" data-note-id="<%= note._id %>"
+                        data-box-id="<%= box._id %>" data-note-title="<%= note.title %>"
+                        data-note-colour="<%= note.colour %>" data-note-type="<%= note.type %>"
+                        data-note-text="<%= note.text %>" aria-label="Edit Thought">
+                        <i data-feather="edit"></i>
+                </button>
+
+                <button type="button" class="moveNoteBtn" title="Move Thought" data-note-id="<%= note._id %>"
                         aria-label="Move Thought"><i data-feather="move"></i></button>
 
-                <button type="button" class="archiveNoteBtn" title="Send to Storage (Archive)" data-id="<%= note._id %>"
-                        aria-label="Send to Storage (Archive)"><i data-feather="archive"></i></button>
+                <button type="button" class="archiveNoteBtn" title="Send to Storage (Archive)"
+                        data-note-id="<%= note._id %>" aria-label="Send to Storage (Archive)"><i
+                                data-feather="archive"></i></button>
 
-                <form class="deleteNote" data-box-id="<%= note._id %>" method="POST"
+                <form class="deleteNote" data-note-id="<%= note._id %>" method="POST"
                         action="/notes/delete/<%= note._id %>?_method=DELETE">
                         <button type="submit" class="deleteNoteBtn" title="Delete Thought (Permanent)"
-                                data-id="<%= note._id %>" aria-label="
+                                data-note-id="<%= note._id %>" aria-label="
             Delete Thought (Permanent)"><i data-feather="trash-2"></i></button>
                 </form>
         </div>
