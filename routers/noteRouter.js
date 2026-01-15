@@ -43,6 +43,7 @@ router.post('/', async (req, res) => {
             noteText,
             noteImgSrc,
             noteImgDesc,
+            noteTags
         } = req.body;
 
         if (!noteBoxId) {
@@ -55,6 +56,12 @@ router.post('/', async (req, res) => {
             type: noteType,
             boxId: noteBoxId,
         });
+
+        if (noteTags && noteTags.trim() !== '') {
+            note.tags = noteTags
+                .split(',')
+                .filter(tag => tag.length > 0)
+        };
 
         if (noteType === 'text') {
             note.text = noteText;
@@ -88,13 +95,21 @@ router.put("/edit/:id", async (req, res) => {
             noteType,
             noteText,
             noteImgSrc,
-            noteImgDesc
+            noteImgDesc,
+            noteTags
         } = req.body;
 
         const updateData = {
             title: noteTitle,
             colour: noteColour
         };
+
+        if (noteTags && noteTags.trim() !== '') {
+            updateData.tags = noteTags
+                .split(',')
+                .filter(tag => tag.length > 0)
+        };
+
         if (noteType === 'text') {
             updateData.text = noteText;
         };

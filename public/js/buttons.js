@@ -178,7 +178,8 @@ editNoteBtns.forEach(button => {
             image: {
                 src: button.dataset.noteImgSrc || '',
                 desc: button.dataset.noteImgDesc || '',
-            }
+            },
+            tags: button.dataset.noteTags,
         };
         setEditNoteMode(note);
     })

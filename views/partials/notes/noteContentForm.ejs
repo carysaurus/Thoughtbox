@@ -13,27 +13,25 @@
      </select>
      <div id="noteUserInput">
          <textarea id="noteText" name="noteText" class="collapsed"></textarea>
-
-
          <div id="noteImageInput" class="collapsed">
              <label for="noteImgSrc" class="noteLabel">Image URL:</label> <input type="text" id="noteImgSrc"
-                 name="noteImgSrc" placeholder="http://www....">
+                 name="noteImgSrc" placeholder="image.jpg">
              <br>
              <label for="noteImgDesc" class="noteLabel">Description:</label> <textarea id="noteImgDesc"
-                 name="noteImgDesc" rows="3" placeholder="optional"></textarea>
+                 name="noteImgDesc" rows="3"></textarea>
 
              <div id="previewImg"> <button type="button" id="previewImgBtn" class="xsBtn" title="Preview Image"><i
                          data-feather="eye"></i> </button>
                  <img id="previewImgHere">
              </div>
          </div>
-
+         <textarea id="noteList" name="noteList" class="collapsed"></textarea>
 
      </div>
 
      <div class="line"></div>
      <div id="noteTagsArea"><button type="button" class="tagIcon"><i data-feather="tag"></i></button>
-         <textarea id="noteTags" rows="1" placeholder="tags optional"></textarea>
+         <textarea id="noteTags" name="noteTags" rows="1" placeholder="Tags (comma separated):"></textarea>
      </div>
      <div id="noteFormBtns">
          <button type="button" id="returnTypeBtn" aria-label="Return to Thought Type">

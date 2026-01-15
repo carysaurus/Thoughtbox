@@ -23,10 +23,18 @@
 
         </div>
     </div>
-    <div class=" noteTags" data-note-id="<%= note._id %>">
-        <div class="line <%= note.colour %>"></div>
+    <% if (note.tags && note.tags.length > 0) { %>
+    <div class="noteTags" data-note-id="<%= note._id %>">
+        <div class="line <%= note.colour %> tag"></div>
 
         <button type="button" class="tagIcon"><i data-feather="tag"></i></button>
-        <div class="listTags" data-note-id="<%= note._id %>"></div>
+        <div class="listTags" data-note-id="<%= note._id %>">
+
+            <% note.tags.forEach(tag => { %>
+            <p class="tag"><%= tag %></p>
+            <% }) %>
+
+        </div>
     </div>
+    <% } %>
 </div>

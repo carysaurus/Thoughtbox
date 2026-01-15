@@ -56,10 +56,34 @@
 
 }
 
-.noteTags {
-    display: none;
+.line.tag {
+    position: absolute;
+    margin-top: -1rem;
 }
 
+.noteTags {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    gap: .5rem;
+    align-items: flex-start;
+}
+
+.listTags {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: .2rem;
+}
+
+p.tag {
+    padding: .2rem;
+    border-radius: .2rem;
+    background-color: var(--boxMenuBg);
+    color: var(--font-light);
+
+}
 
 /* -------------------------------------- */
 /* Collapsed Styles */
@@ -83,6 +107,7 @@
     opacity: 0;
     pointer-events: none;
     padding: 0;
+    margin: 0;
 }
 
 .noteBody.collapsed>* {
