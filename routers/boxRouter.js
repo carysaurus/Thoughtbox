@@ -17,9 +17,14 @@ router.post("/", async (req, res) => {
   console.log(req.body);
   try {
     const { boxTitle, boxColour } = req.body;
+
+    const lastBox = await Box.findOne().sort({ order: -1 }).select("order");
+    const newOrder = lastBox ? lastBox.order + 1 : 0;
+
     const box = new Box({
       title: boxTitle,
       colour: boxColour || undefined,
+      order: newOrder,
     });
     await box.save();
     res.redirect("/");
@@ -94,6 +99,65 @@ router.put("/archive/:id/notes/remove", async (req, res) => {
   } catch (error) {
     console.error("Error updating Box:", error);
     res.status(500).send("Failed to update Box");
+  }
+});
+
+// --------------------------------------
+// Change Box Order
+// --------------------------------------
+// Move Left
+router.put("/order/:id/left", async (req, res) => {
+  try {
+    const box = await Box.findById(req.params.id);
+
+    const boxBefore = await Box.findOne({
+      order: { $gt: box.order },
+    }).sort({ order: 1 });
+
+    if (!boxBefore) {
+      res.sendStatus(204);
+      return;
+    }
+
+    const tempOrder = box.order;
+    box.order = boxBefore.order;
+    boxBefore.order = tempOrder;
+
+    await box.save();
+    await boxBefore.save();
+
+    res.redirect("/");
+  } catch (err) {
+    console.error("Error moving Box:", err);
+    res.status(500).send("Failed to move Box");
+  }
+});
+
+// Move Right
+router.put("/order/:id/right", async (req, res) => {
+  try {
+    const box = await Box.findById(req.params.id);
+
+    const boxAfter = await Box.findOne({
+      order: { $lt: box.order },
+    }).sort({ order: -1 });
+
+    if (!boxAfter) {
+      res.sendStatus(204);
+      return;
+    }
+
+    const tempOrder = box.order;
+    box.order = boxAfter.order;
+    boxAfter.order = tempOrder;
+
+    await box.save();
+    await boxAfter.save();
+
+    res.redirect("/");
+  } catch (err) {
+    console.error("Error moving Box:", err);
+    res.status(500).send("Failed to move Box");
   }
 });
 

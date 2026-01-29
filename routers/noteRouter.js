@@ -8,26 +8,6 @@ const router = express.Router();
 const { Note } = require("../models/noteModel");
 
 // --------------------------------------
-// Fetch All Notes
-// --------------------------------------
-// router.get('/', async (req, res) => {
-//     try {
-//         const notes = await Note.find({
-//             archived: false
-//         });
-
-//         // Update to filter by UserId once User feature is functional
-
-//         res.status(200).json(notes);
-//     } catch (err) {
-//         res.status(500).json({
-//             message: 'Something went wrong! Please try again later.',
-//             error: err.message
-//         });
-//     }
-// });
-
-// --------------------------------------
 // Create New Note
 // --------------------------------------
 router.post("/", async (req, res) => {
@@ -48,11 +28,17 @@ router.post("/", async (req, res) => {
       return res.status(400).send("Box ID is required");
     }
 
+    const lastNote = await Note.findOne({ boxId: noteBoxId })
+      .sort({ order: -1 })
+      .select("order");
+    const newOrder = lastNote ? lastNote.order + 1 : 0;
+
     const note = new Note({
       title: noteTitle,
       colour: noteColour || undefined,
       type: noteType,
       boxId: noteBoxId,
+      order: newOrder,
     });
 
     if (noteTags && noteTags.trim() !== "") {
@@ -81,7 +67,6 @@ router.post("/", async (req, res) => {
 // --------------------------------------
 // Update Existing Note
 // --------------------------------------
-
 router.put("/edit/:id", async (req, res) => {
   try {
     const {
@@ -133,6 +118,67 @@ router.put("/collapse/:id", async (req, res) => {
   } catch (err) {
     console.error("Error updating Thought collapse state:", err);
     res.status(500).send("Failed to update Thought state");
+  }
+});
+
+// --------------------------------------
+// Change Note Order
+// --------------------------------------
+// Move Up
+router.put("/order/:id/up", async (req, res) => {
+  try {
+    const note = await Note.findById(req.params.id);
+
+    const noteAbove = await Note.findOne({
+      boxId: note.boxId,
+      order: { $gt: note.order },
+    }).sort({ order: 1 });
+
+    if (!noteAbove) {
+      res.sendStatus(204);
+      return;
+    }
+
+    const tempOrder = note.order;
+    note.order = noteAbove.order;
+    noteAbove.order = tempOrder;
+
+    await note.save();
+    await noteAbove.save();
+
+    res.redirect("/");
+  } catch (err) {
+    console.error("Error moving Thought:", err);
+    res.status(500).send("Failed to move Thought");
+  }
+});
+
+// Move Down
+router.put("/order/:id/down", async (req, res) => {
+  try {
+    const note = await Note.findById(req.params.id);
+
+    const noteBelow = await Note.findOne({
+      boxId: note.boxId,
+      order: { $lt: note.order },
+    }).sort({ order: -1 });
+
+    if (!noteBelow) {
+      res.sendStatus(204);
+      return;
+    }
+
+    const tempOrder = note.order;
+    note.order = noteBelow.order;
+    noteBelow.order = tempOrder;
+
+    await note.save();
+    await noteBelow.save();
+
+    res.redirect("/");
+  } catch (err) {
+    console.error("Error moving Thought:", err);
+    res.status(500).send("Failed to move Thought");
   }
 });
 

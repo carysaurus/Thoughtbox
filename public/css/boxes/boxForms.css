@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: column;
   width: fit-content;
+
   padding: 0.5rem 1rem;
   background-color: var(--light-background);
   border-radius: 0.5rem;
@@ -26,7 +27,7 @@
 
 #newBoxForm {
   opacity: 1;
-  overflow: hidden;
+  /* overflow: hidden; */
   transition:
     max-height 0.3s ease,
     opacity 0.2s ease,

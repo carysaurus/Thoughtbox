@@ -59,3 +59,10 @@ export function collapseNoteBody(id, button) {
   expandBtn.classList.remove("collapsed");
   button.classList.add("collapsed");
 }
+
+export function editNoteOrder(id, order) {
+  const moveArrows = document.querySelector(
+    `.noteOrderBtns[data-note-id="${id}"]`,
+  );
+  moveArrows.classList.toggle("collapsed");
+}

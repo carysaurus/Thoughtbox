@@ -89,11 +89,15 @@ const noteSchema = new Schema(
       default: false,
       required: true,
     },
-
     order: {
       type: Number,
       default: 0,
       required: true,
+    },
+    orderShow: {
+      type: Boolean,
+      required: true,
+      default: false,
     },
     collapsed: {
       type: Boolean,

@@ -45,6 +45,11 @@ button.hidden {
   pointer-events: none;
 }
 
+.lgBtn {
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
 .smallBtn {
   width: 1.75rem;
   height: 1.75rem;
@@ -157,4 +162,18 @@ button.hidden {
 
 .deleteNoteBtn {
   grid-area: 2 / 2 / 3 / 3;
+}
+
+.noteOrderBtn,
+.boxOrderBtn {
+  width: 1rem;
+  height: 1rem;
+  padding: 0;
+  margin: 0;
+  border-radius: 0.5rem;
+  border: 0;
+}
+
+button:disabled {
+  background: var(--boxMenuBg);
 }

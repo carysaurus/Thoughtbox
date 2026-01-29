@@ -3,9 +3,10 @@
 <div class="box <%= box.colour %>" data-box-id="<%= box._id %>">
 
     <h2><%= box.title %></h2>
-    <!-- editBoxForm partials will go here -->
+
     <%- include('./boxMenu') %>
     <%- include('./editBoxForm', { box }) %>
+
     <div class="boxNotes">
 
         <% notes.filter(note => note.boxId.toString() === box._id.toString()).forEach(note => { %>
@@ -13,6 +14,6 @@
         <% }) %>
 
     </div>
-
+    <%- include('./boxOrder.ejs', { box }) %>
 
 </div>

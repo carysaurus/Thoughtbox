@@ -10,9 +10,15 @@ router.get("/", async (req, res) => {
   try {
     const userBoxes = await Box.find({
       archived: false,
-    });
+    }).sort({ order: -1 });
     // Box.find({ user: req.user._id });
-    const boxNotes = await Note.find({ archived: false });
+    const boxNotes = await Note.find({ archived: false }).sort({
+      order: -1,
+    });
+
+    const firstBoxOrder = userBoxes[0].order;
+    const lastBoxOrder = userBoxes[userBoxes.length - 1].order;
+
     res.render("index", {
       boxes: userBoxes,
       notes: boxNotes,

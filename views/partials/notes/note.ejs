@@ -1,40 +1,43 @@
 <!-- views/partials/notes/note.ejs -->
+<container class="eachNote">
 
-<div class="note <%= note.colour %>" data-box-id="<%= box._id %>" data-note-id="<%= note._id %>">
+    <div class="note <%= note.colour %>" data-box-id="<%= box._id %>" data-note-id="<%= note._id %>">
 
-    <div class="noteHead">
-        <h3><%= note.title %></h3>
+        <div class="noteHead">
+            <%- include('./noteOrder', { note }) %>
+            <h3><%= note.title %></h3>
 
-        <%- include('./noteMenu', { boxId: box._id, note }) %>
-    </div>
-    <div class="noteBody <%= note.collapsed ? 'collapsed' : '' %>" data-note-id="<%= note._id %>">
-        <div class="line <%= note.colour %>">
+            <%- include('./noteMenu', { boxId: box._id, note }) %>
         </div>
-        <div class="noteContent">
-            <% if (note.text) { %>
-            <p><%= note.text %></p>
-            <% } %>
-            <% if (note.image?.src) { %>
-            <img src="<%= note.image.src %>" class="noteImg">
-            <% } %>
-            <% if (note.image.desc) { %>
-            <p class="imgDescP"><%= note.image.desc %> </p>
-            <% } %>
+        <div class="noteBody <%= note.collapsed ? 'collapsed' : '' %>" data-note-id="<%= note._id %>">
+            <div class="line <%= note.colour %>">
+            </div>
+            <div class="noteContent">
+                <% if (note.text) { %>
+                <p><%= note.text %></p>
+                <% } %>
+                <% if (note.image?.src) { %>
+                <img src="<%= note.image.src %>" class="noteImg">
+                <% } %>
+                <% if (note.image.desc) { %>
+                <p class="imgDescP"><%= note.image.desc %> </p>
+                <% } %>
 
+            </div>
         </div>
-    </div>
-    <% if (note.tags && note.tags.length > 0) { %>
-    <div class="noteTags" data-note-id="<%= note._id %>">
-        <div class="line <%= note.colour %> tag"></div>
+        <% if (note.tags && note.tags.length > 0) { %>
+        <div class="noteTags" data-note-id="<%= note._id %>">
+            <div class="line <%= note.colour %> tag"></div>
 
-        <button type="button" class="tagIcon"><i data-feather="tag"></i></button>
-        <div class="listTags" data-note-id="<%= note._id %>">
+            <button type="button" class="tagIcon"><i data-feather="tag"></i></button>
+            <div class="listTags" data-note-id="<%= note._id %>">
 
-            <% note.tags.forEach(tag => { %>
-            <p class="tag"><%= tag %></p>
-            <% }) %>
+                <% note.tags.forEach(tag => { %>
+                <p class="tag"><%= tag %></p>
+                <% }) %>
 
+            </div>
         </div>
+        <% } %>
     </div>
-    <% } %>
-</div>
+</container>

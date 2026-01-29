@@ -14,6 +14,7 @@ import {
   toggleNoteMenuVis,
   expandNoteBody,
   collapseNoteBody,
+  editNoteOrder,
 } from "./notes/notes.js";
 
 import { toggleBoxMenuVis, toggleBoxEditForm } from "./boxes/boxes.js";
@@ -130,6 +131,7 @@ const expandNoteBtns = document.querySelectorAll(".expandNoteBtn");
 const collapseNoteBtns = document.querySelectorAll(".collapseNoteBtn");
 const noteMenuMainBtns = document.querySelectorAll(".noteMenuMainBtn");
 const editNoteBtns = document.querySelectorAll(".editNoteBtn");
+const moveNoteBtns = document.querySelectorAll(".moveNoteBtn");
 const archiveNoteBtns = document.querySelectorAll(".archiveNoteBtn");
 
 noteMenuMainBtns.forEach((button) => {
@@ -167,6 +169,14 @@ editNoteBtns.forEach((button) => {
       tags: button.dataset.noteTags,
     };
     setEditNoteMode(note);
+  });
+});
+
+moveNoteBtns.forEach((button) => {
+  button.addEventListener("click", () => {
+    const noteId = button.dataset.noteId;
+    const noteOrder = button.dataset.noteOrder;
+    editNoteOrder(noteId, noteOrder);
   });
 });
 
