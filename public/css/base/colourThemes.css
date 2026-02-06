@@ -5,41 +5,49 @@
   --light-border: rgb(238, 233, 230);
   --light-background: rgb(252, 250, 250);
   --light-background-note: rgb(255, 255, 255);
+  --light-scrollbar: rgba(181, 172, 167);
 
   /* Pink theme */
   --pink-border: rgb(168, 120, 146);
   --pink-background: rgb(232, 211, 221);
   --pink-background-note: rgb(228, 199, 213);
+  --pink-scrollbar: rgba(168, 120, 146, 0.75);
 
   /* Blue theme */
   --blue-border: rgb(127, 161, 176);
   --blue-background: rgb(216, 228, 236);
   --blue-background-note: rgb(192, 216, 233);
+  --blue-scrollbar: rgba(127, 161, 176, 0.75);
 
   /* Green theme */
   --green-border: rgb(106, 132, 104);
-  --green-background: rgb(207, 218, 206);
-  --green-background-note: rgb(189, 221, 186);
+  --green-background: rgb(186, 216, 183);
+  --green-background-note: rgb(199, 233, 196);
+  --green-scrollbar: rgba(106, 132, 104, 0.75);
 
   /* Orange theme */
-  --orange-border: rgb(168, 91, 36);
+  --orange-border: rgb(186, 111, 58);
   --orange-background: rgb(233, 196, 169);
   --orange-background-note: rgb(238, 183, 144);
+  --orange-scrollbar: rgba(186, 111, 58, 0.75);
 
   /* Purple theme */
-  --purple-border: rgb(112, 16, 131);
+  --purple-border: rgb(124, 76, 135);
   --purple-background: rgb(210, 195, 214);
   --purple-background-note: rgb(222, 202, 228);
+  --purple-scrollbar: rgba(124, 76, 135, 0.75);
 
   /* Teal theme */
-  --teal-border: rgb(31, 129, 106);
+  --teal-border: rgb(62, 149, 129);
   --teal-background: rgb(191, 220, 214);
-  --teal-background-note: rgb(176, 234, 222);
+  --teal-background-note: rgb(194, 234, 227);
+  --teal-scrollbar: rgba(62, 149, 129, 0.75);
 
   /* Gold theme */
   --gold-border: rgb(181, 139, 12);
   --gold-background: rgb(244, 229, 190);
   --gold-background-note: rgb(244, 216, 145);
+  --gold-scrollbar: rgba(181, 139, 12, 0.75);
 }
 
 /* Light */
@@ -50,6 +58,7 @@
   border-bottom: 4px double var(--main-border);
   border-left: 1px solid var(--main-border);
   border-right: 1px solid var(--main-border);
+  scrollbar-color: var(--light-scrollbar) var(--light-background);
   color: var(--font-dark);
 }
 
@@ -83,7 +92,9 @@
   border-left: 1px solid var(--pink-border);
   border-right: 1px solid var(--pink-border);
   color: var(--font-dark);
+  scrollbar-color: var(--pink-scrollbar) var(--pink-background);
 }
+/* rgba(255, 255, 255, 0.082) */
 
 .boxMenuBtns.Pink,
 .noteMenuBtns.Pink {
@@ -114,6 +125,7 @@
   border-bottom: 4px double var(--blue-border);
   border-left: 1px solid var(--blue-border);
   border-right: 1px solid var(--blue-border);
+  scrollbar-color: var(--blue-scrollbar) var(--blue-background);
   color: var(--font-dark);
 }
 
@@ -146,6 +158,7 @@
   border-bottom: 4px double var(--green-border);
   border-left: 1px solid var(--green-border);
   border-right: 1px solid var(--green-border);
+  scrollbar-color: var(--green-scrollbar) var(--green-background);
   color: var(--font-dark);
 }
 
@@ -178,6 +191,7 @@
   border-bottom: 4px double var(--orange-border);
   border-left: 1px solid var(--orange-border);
   border-right: 1px solid var(--orange-border);
+  scrollbar-color: var(--orange-scrollbar) var(--orange-background);
   color: var(--font-dark);
 }
 
@@ -210,6 +224,7 @@
   border-bottom: 4px double var(--purple-border);
   border-left: 1px solid var(--purple-border);
   border-right: 1px solid var(--purple-border);
+  scrollbar-color: var(--purple-scrollbar) var(--purple-background);
   color: var(--font-dark);
 }
 
@@ -242,6 +257,7 @@
   border-bottom: 4px double var(--teal-border);
   border-left: 1px solid var(--teal-border);
   border-right: 1px solid var(--teal-border);
+  scrollbar-color: var(--teal-scrollbar) var(--teal-background);
   color: var(--font-dark);
 }
 
@@ -274,6 +290,7 @@
   border-bottom: 4px double var(--gold-border);
   border-left: 1px solid var(--gold-border);
   border-right: 1px solid var(--gold-border);
+  scrollbar-color: var(--gold-scrollbar) var(--gold-background);
   color: var(--font-dark);
 }
 

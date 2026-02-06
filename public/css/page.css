@@ -32,6 +32,12 @@ header {
   flex: 1;
 }
 
+#logo {
+  max-height: 90%;
+  flex-shrink: 0;
+  width: auto;
+}
+
 main {
   background-color: var(--main-background);
   border-top: 4px double var(--main-border);
@@ -45,32 +51,54 @@ main {
   overflow-x: hidden;
 }
 
+/* Footer */
 footer {
+  height: clamp(60px, 30vw, 80px);
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: flex-end;
-  gap: 1.5rem;
-  padding: 0.5rem 1rem 1rem 0.5rem;
+  padding: 1rem;
+  padding-right: 0.5rem;
   position: relative;
 }
 
-#navBtns {
-  position: absolute;
-  left: 1rem;
-  top: 1rem;
+#footerUser {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  width: clamp(0px, 50vw, 200px);
+}
+
+#showUsername {
+  height: 40%;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+}
+/* Footer Buttons */
+#footerBtns {
+  align-items: flex-end;
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
+  width: 100%;
+}
+#userLogout {
+  margin-left: auto;
 }
 
-footer p {
-  font-weight: 300;
-  font-size: 0.8rem;
+/* Carysaurus */
+#carysaurus {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  margin-left: 1rem;
 }
-
-#logo {
-  max-height: 90%;
+#footer-image {
+  height: clamp(30px, 80%, 80px);
   flex-shrink: 0;
   width: auto;
 }
@@ -82,5 +110,16 @@ footer p {
   header,
   main {
     margin-top: 1rem;
+  }
+  footer {
+    gap: 0.5rem;
+  }
+}
+@media (max-width: 400px) {
+  #carysaurus {
+    height: 90%;
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    justify-content: space-between;
   }
 }

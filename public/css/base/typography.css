@@ -36,10 +36,12 @@ header p {
   padding-right: 1rem;
 }
 
+/* Auth */
 .loginSubheader {
   font-style: italic;
 }
 
+/* Boxes */
 #newBoxFormTitle {
   font-weight: 700;
   padding-bottom: 0.2rem;
@@ -47,6 +49,13 @@ header p {
   width: auto;
 }
 
+.emptyBoxText {
+  font-style: italic;
+  margin-bottom: 1rem;
+  padding: 0 2rem;
+}
+
+/* Notes */
 .noteTypeBtn p {
   padding-left: 0.5rem;
 }
@@ -61,6 +70,20 @@ p.tag {
   font-weight: 400;
 }
 
+/* Footer */
+#footerUsername {
+  /* font-size: 1.25rem; */
+  font-size: clamp(0.4rem, 15vw, 1.25rem);
+  font-weight: 600;
+}
+
+#copyright {
+  font-weight: 300;
+  font-size: clamp(0rem, 2vw, 0.8rem);
+  flex-wrap: wrap;
+  text-align: right;
+}
+
 @media (max-width: 500px) {
   h1 {
     font-size: clamp(1.25rem, 12vw, 3.5rem);
@@ -73,5 +96,9 @@ p.tag {
 
   h2 {
     font-size: clamp(1.25rem, 10vw, 2rem);
+  }
+
+  #copyright {
+    padding-right: 0.5rem;
   }
 }

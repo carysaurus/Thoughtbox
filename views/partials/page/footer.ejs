@@ -1,18 +1,36 @@
 <!-- footer.ejs -->
 
 <footer>
-    <div id="navBtns">
-        <form class="showHome" method="GET" action="/">
-            <button type="submit" class="homeBtn lgBtn" title="Home" aria-label="Home"><i
-                    data-feather="home"></i></button>
-        </form>
+    <div id="footerUser">
+        <div id="showUsername">
+            <% if (user) { %>
+            <i data-feather="user"></i>
+            <p id="footerUsername"> <%= user.username %></p>
+            <% } %>
+        </div>
+        <div id="footerBtns">
 
-        <form class="showArchive" method="GET" action="/archived">
-            <button type="submit" class="archiveBt lgBtn" title="Storage" aria-label="Storage (Archive)"><i
-                    data-feather="archive"></i></button></form>
+            <form id="showHome" method="GET" action="/">
+                <button type="submit" class="homeBtn lgBtn" title="Home" aria-label="Home"><i
+                        data-feather="home"></i></button>
+            </form>
+
+            <form id="showArchive" method="GET" action="/archived">
+                <button type="submit" class="archiveBt lgBtn" title="Archive" aria-label="Storage (Archive)"><i
+                        data-feather="archive"></i></button></form>
+
+            <form id="userLogout" method="POST" action="/auth/logout">
+                <button type="submit" class="logoutBtn lgBtn" title="Log Out" aria-label="Log Out"><i
+                        data-feather="log-out"></i></button>
+            </form>
+
+        </div>
     </div>
-    <p>&copy; 2026 Carys Richards / Carysaurus</p>
-    <img src="assets/iconCarysaurus.png" class="footer-image" alt="Carysaurus" />
+    <div id="carysaurus">
+        <p id="copyright">&copy; 2026 Carys Richards / Carysaurus</p>
+        <img src="assets/iconCarysaurus.png" id="footer-image" alt="Carysaurus" />
+    </div>
+
 </footer>
 
 <!-- Feather icons CDN -->

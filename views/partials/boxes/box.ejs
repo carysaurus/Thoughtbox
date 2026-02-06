@@ -9,11 +9,16 @@
 
     <div class="boxNotes">
 
-        <% notes.filter(note => note.boxId.toString() === box._id.toString()).forEach(note => { %>
+        <% const boxNotes = notes.filter(note => note.boxId.toString() === box._id.toString()) %>
+        <% if (boxNotes.length != 0) { %>
+        <% boxNotes.forEach(note => { %>
         <%- include('../notes/note', { boxId: box._id, note }) %>
         <% }) %>
-
+        <% } else  { %>
+        <%- include('./emptyBox', { box} ) %>
+        <% } %>
     </div>
+
     <%- include('./boxOrder.ejs', { box }) %>
 
 </div>

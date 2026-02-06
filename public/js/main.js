@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const authWindow = document.getElementById("authWindow");
   if (isLoggedIn) {
     authWindow.style.display = "none";
+  } else {
+    authWindow.style.display = "flex";
   }
 
   feather.replace();

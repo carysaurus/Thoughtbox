@@ -4,6 +4,8 @@
   flex: 1 1 auto;
   width: 100%;
   overflow-y: auto;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -13,6 +15,13 @@
 .eachNote {
   display: flex;
   flex-direction: row;
+  flex: 1;
+  /* align-items: center; */
+}
+
+.emptyBoxNote {
+  text-align: center;
+  justify-content: center;
 }
 
 .note {
