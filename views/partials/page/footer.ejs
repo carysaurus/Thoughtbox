@@ -1,4 +1,5 @@
 <!-- footer.ejs -->
+<% const isArchive = userView === "archive"; %>
 
 <footer>
     <div id="footerUser">
@@ -11,16 +12,16 @@
         <div id="footerBtns">
 
             <form id="showHome" method="GET" action="/">
-                <button type="submit" class="homeBtn lgBtn" title="Home" aria-label="Home"><i
-                        data-feather="home"></i></button>
+                <button type="submit" class="homeBtn footerBtn" title="Home" aria-label="Home"
+                    <%= isArchive ? "" : "disabled" %>><i data-feather="home"></i></button>
             </form>
 
             <form id="showArchive" method="GET" action="/archived">
-                <button type="submit" class="archiveBt lgBtn" title="Archive" aria-label="Storage (Archive)"><i
-                        data-feather="archive"></i></button></form>
+                <button type="submit" class="archiveBt footerBtn" title="Archive" aria-label="Storage (Archive)"
+                    <%= isArchive ? "disabled" : "" %>><i data-feather="archive"></i></button></form>
 
             <form id="userLogout" method="POST" action="/auth/logout">
-                <button type="submit" class="logoutBtn lgBtn" title="Log Out" aria-label="Log Out"><i
+                <button type="submit" class="logoutBtn footerBtn" title="Log Out" aria-label="Log Out"><i
                         data-feather="log-out"></i></button>
             </form>
 

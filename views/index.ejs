@@ -2,10 +2,16 @@
 
 <!DOCTYPE html>
 <html lang="en">
+<script>
+    window.toastMessage = "<%= toastMessage || '' %>";
+    window.userView = "<%= userView || '' %>";
+</script>
+
 
 <%- include('partials/page/head') %>
 
 <body data-logged-in="<%= user ? 'true' : 'false' %>">
+    <%- include('partials/page/toast', { toastMessage }) %>
 
     <%- include('partials/auth/login') %>
     <%- include('partials/page/header') %>
@@ -14,7 +20,9 @@
 
         <%- include('partials/notes/noteForm') %>
         <div id="containerBoxes">
+            <% if (userView === 'home') { %>
             <%- include('partials/boxes/newBoxForm') %>
+            <% } %>
 
             <div id="userBoxes">
                 <% boxes.forEach(box => { %>

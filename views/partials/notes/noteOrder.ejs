@@ -1,13 +1,16 @@
 <!-- view/partials/notes/noteOrder.ejs  -->
+<% const isArchive = userView === "archive"; %>
 
 <div class="noteOrderBtns">
   <form class="moveNoteUp" data-box-id="<%= box._id %>" data-note-id="<%= note._id %>"
     data-note-order="<%= note.order %>" method="POST" action="/notes/order/<%= note._id %>/up?_method=PUT">
     <button type="submit" data-box-id="<%= box._id %>" data-note-id="<%= note._id %>"
-      data-note-order="<%= note.order %>" class="noteUpBtn noteOrderBtn"><i data-feather="arrow-up"></i></button></form>
+      data-note-order="<%= note.order %>" class="noteUpBtn noteOrderBtn" <%= isArchive ? "disabled" : "" %>><i
+        data-feather="arrow-up"></i></button></form>
   <form class="moveNoteDown" data-box-id="<%= box._id %>" data-note-id="<%= note._id %>"
     data-note-order="<%= note.order %>" method="POST" action="/notes/order/<%= note._id %>/down?_method=PUT">
     <button type="submit" data-box-id="<%= box._id %>" data-note-id="<%= note._id %>"
-      data-note-order="<%= note.order %>" class="noteDownBtn noteOrderBtn"><i data-feather="arrow-down"></i></button>
+      data-note-order="<%= note.order %>" class="noteDownBtn noteOrderBtn" <%= isArchive ? "disabled" : "" %>><i
+        data-feather="arrow-down"></i></button>
   </form>
 </div>

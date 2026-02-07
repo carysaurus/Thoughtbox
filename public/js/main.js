@@ -1,5 +1,6 @@
 // public/js/main.js
 import { expandNewBoxForm, collapseNewBoxForm } from "./buttons.js";
+import { updateToast } from "./toast.js";
 
 import { checkOpenBoxMenu } from "./boxes/boxes.js";
 import {
@@ -16,6 +17,10 @@ document.addEventListener("DOMContentLoaded", () => {
     authWindow.style.display = "none";
   } else {
     authWindow.style.display = "flex";
+  }
+
+  if (window.toastMessage) {
+    updateToast(window.toastMessage);
   }
 
   feather.replace();

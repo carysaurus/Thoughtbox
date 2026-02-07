@@ -70,13 +70,30 @@ passport.deserializeUser(async (id, done) => {
 // --------------------------------------
 // Login Existing User
 // --------------------------------------
-router.post(
-  "/login",
-  passport.authenticate("local", {
-    successRedirect: "/",
-    failureRedirect: "/",
-  }),
-);
+
+router.post("/login", (req, res) => {
+  passport.authenticate("local", (err, user, info) => {
+    if (err) {
+      console.error("Login error:", err);
+      return res.redirect("/");
+    }
+
+    if (!user) {
+      req.session.toastMessage = "loginFail";
+      return res.redirect("/");
+    }
+
+    req.logIn(user, (err) => {
+      if (err) {
+        console.error("Login after authentication failed:", err);
+        return res.redirect("/");
+      }
+      if (req.session.toastMessage !== "registerSuccess")
+        req.session.toastMessage = "loginSuccess";
+      return res.redirect("/");
+    });
+  })(req, res);
+});
 
 // --------------------------------------
 // Register New User
@@ -89,6 +106,7 @@ router.post("/register", async (req, res) => {
   const user = await User.findOne({ username: req.body.username });
   if (user) {
     console.error("Username already exists. Please choose another username.");
+    req.session.toastMessage = "registerFail";
     return res.redirect("/");
   }
 
@@ -122,6 +140,7 @@ router.post("/register", async (req, res) => {
             console.error("Login after registration failed:", err);
             return res.redirect("/");
           }
+          req.session.toastMessage = "registerSuccess";
           return res.redirect("/");
         });
       } catch (err) {
@@ -141,6 +160,7 @@ router.post("/logout", function (req, res) {
       console.error("Logout error:", err);
       return res.redirect("/");
     }
+    req.session.toastMessage = "logout";
     res.redirect("/");
   });
 });

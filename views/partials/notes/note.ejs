@@ -5,7 +5,12 @@
 
         <div class="noteHead">
             <%- include('./noteOrder', { note }) %>
-            <h3><%= note.title %></h3>
+            <h3><% if (note.archived) { %>
+                <i data-feather="archive" class="archivedNote"> </i>
+                <% } else { %>
+
+                <% } %>
+                <%= note.title %></h3>
 
             <%- include('./noteMenu', { boxId: box._id, note }) %>
         </div>

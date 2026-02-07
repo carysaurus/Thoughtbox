@@ -1,14 +1,17 @@
 <!-- view/partials/boxes/boxOrder.ejs -->
+<% const isArchive = userView === "archive"; %>
 
 <div class="boxOrderBtns">
 
     <form class="moveBoxLeft" data-box-id="<%= box._id %>" data-box-order="<%= box.order %>" method="POST"
         action="/boxes/order/<%= box._id %>/left?_method=PUT">
         <button type="submit" data-box-id="<%= box._id %>" data-box-order="<%= box.order %>"
-            class="boxLeftBtn boxOrderBtn"><i data-feather="arrow-left"></i></button></form>
+            class="boxLeftBtn boxOrderBtn" <%= isArchive ? "disabled" : "" %>><i data-feather="arrow-left"></i></button>
+    </form>
     <form class="moveBoxRight" data-box-id="<%= box._id %>" data-box-order="<%= box.order %>" method="POST"
         action="/boxes/order/<%= box._id %>/right?_method=PUT">
         <button type="submit" data-box-id="<%= box._id %>" data-box-order="<%= box.order %>"
-            class="boxRightBtn boxOrderBtn"><i data-feather="arrow-right"></i></button>
+            class="boxRightBtn boxOrderBtn" <%= isArchive ? "disabled" : "" %>><i
+                data-feather="arrow-right"></i></button>
     </form>
 </div>

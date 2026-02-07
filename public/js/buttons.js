@@ -31,9 +31,13 @@ const newBoxForm = document.getElementById("newBoxForm");
 const expandNewBoxBtn = document.getElementById("expandNewBoxBtn");
 const collapseNewBoxBtn = document.getElementById("collapseNewBoxBtn");
 
-expandNewBoxBtn.addEventListener("click", expandNewBoxForm);
+if (expandNewBoxBtn) {
+  expandNewBoxBtn.addEventListener("click", expandNewBoxForm);
+}
 
-collapseNewBoxBtn.addEventListener("click", collapseNewBoxForm);
+if (expandNewBoxBtn) {
+  collapseNewBoxBtn.addEventListener("click", collapseNewBoxForm);
+}
 
 export function expandNewBoxForm() {
   newBoxForm.classList.remove("collapsed");

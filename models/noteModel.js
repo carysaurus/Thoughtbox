@@ -38,32 +38,10 @@ const noteSchema = new Schema(
       type: String,
       trim: true,
     },
-    checkboxes: [
-      {
-        label: String,
-        checked: {
-          type: Boolean,
-          default: false,
-        },
-      },
-    ],
     list: [
       {
         type: String,
         trim: true,
-      },
-    ],
-
-    links: [
-      {
-        label: {
-          type: String,
-          trim: true,
-        },
-        url: {
-          type: String,
-          trim: true,
-        },
       },
     ],
     image: {
@@ -102,7 +80,7 @@ const noteSchema = new Schema(
     collapsed: {
       type: Boolean,
       required: true,
-      default: true,
+      default: false,
     },
   },
   {

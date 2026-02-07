@@ -9,6 +9,11 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   try {
     const user = req.user || null;
+
+    // get toast from session and clear it
+    const toastMessage = req.session.toastMessage || null;
+    delete req.session.toastMessage;
+
     let userBoxes = [];
     let boxNotes = [];
 
@@ -25,14 +30,12 @@ router.get("/", async (req, res) => {
         order: -1,
       });
     }
-
-    // const firstBoxOrder = userBoxes[0].order;
-    // const lastBoxOrder = userBoxes[userBoxes.length - 1].order;
-
     res.render("index", {
       user: req.user || null,
       boxes: userBoxes,
       notes: boxNotes,
+      toastMessage,
+      userView: "home",
     });
   } catch (err) {
     console.error("Error fetching User data:", err);
@@ -46,24 +49,32 @@ router.get("/archived", async (req, res) => {
     let userBoxes = [];
     let boxNotes = [];
 
+    // get toast from session and clear it
+    const toastMessage = req.session.toastMessage || null;
+    delete req.session.toastMessage;
+
     if (user) {
       userBoxes = await Box.find({
         userId: req.user._id,
         $or: [{ archived: true }, { containsArchivedNotes: { $gt: 0 } }],
       });
-
-      const archivedBoxes = userBoxes.map((box) => box._id);
+      const findArchived = await Box.find({
+        userId: req.user._id,
+        archived: true,
+      });
+      const archivedBoxes = findArchived.map((box) => box._id);
 
       boxNotes = await Note.find({
         userId: req.user._id,
         $or: [{ archived: true }, { boxId: { $in: archivedBoxes } }],
       });
     }
-
     res.render("index", {
       user: req.user || null,
       boxes: userBoxes,
       notes: boxNotes,
+      toastMessage,
+      userView: "archive",
     });
   } catch (err) {
     console.error("Error fetching User data:", err);

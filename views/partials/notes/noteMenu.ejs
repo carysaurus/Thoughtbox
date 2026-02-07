@@ -1,4 +1,5 @@
 <!-- views/partials/notes/noteMenu.ejs -->
+<% const isArchive = userView === "archive"; %>
 
 <div class="noteMenu" data-note-id="<%= note._id %>">
         <div class="noteMenuHead">
@@ -22,13 +23,10 @@
                         data-note-text="<%= note.text || ''%>" data-note-img-src="<%= note.image?.src || ''%>"
                         data-note-img-desc="<%= note.image?.desc || ''%>"
                         data-note-list="<%= (note.list || []).join('&&') %>"
-                        data-note-tags="<%= (note.tags || []).join(', ') %>" aria-label="Edit Thought">
+                        data-note-tags="<%= (note.tags || []).join(', ') %>" aria-label="Edit Thought"
+                        <%= isArchive ? "disabled" : "" %>>
                         <i data-feather="edit"></i>
                 </button>
-
-                <button type="button" class="moveNoteBtn smallBtn" title="Move Thought" data-note-id="<%= note._id %>"
-                        aria-label="Move Thought"><i data-feather="move"></i></button>
-
 
                 <button type="button" class="archiveNoteBtn smallBtn" title="Archive/Unarchive"
                         data-note-id="<%= note._id %>" data-box-id="<%= box._id %>" data-archived="<%= note.archived %>"

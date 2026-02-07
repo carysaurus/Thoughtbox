@@ -1,4 +1,5 @@
 <!-- views/partials/boxes/boxMenu.ejs -->
+<% const isArchive = userView === "archive"; %>
 
 <div class="boxMenu">
         <button type="button" class="boxMenuMainBtn smallBtn" data-box-id="<%= box._id %>" aria-label="Box Menu"><i
@@ -7,15 +8,14 @@
         <div class="boxMenuBtns collapsed <%= box.colour %>" data-box-id="<%= box._id %>">
 
                 <button type="button" class="newNoteBtn" title="Add Thought to Box" data-box-id="<%= box._id %>"
-                        data-colour="<%= box.colour %>" aria-label="Add Thought to Box"><i data-feather="plus"></i><i
+                        data-colour="<%= box.colour %>" aria-label="Add Thought to Box"
+                        <%= isArchive ? "disabled" : "" %>><i data-feather="plus"></i><i
                                 data-feather="message-square"></i>
                 </button>
 
 
                 <button type="button" class="editBoxBtn smallBtn" title="Edit Box" data-box-id="<%= box._id %>"
-                        aria-label="Edit Box"><i data-feather="edit"></i></button>
-                <button type="button" class="moveBoxBtn smallBtn" title="Move Box" data-box-id="<%= box._id %>"
-                        aria-label="Move Box"><i data-feather="move"></i></button>
+                        aria-label="Edit Box" <%= isArchive ? "disabled" : "" %>><i data-feather="edit"></i></button>
 
                 <form class="archiveBox" data-box-id="<%= box._id %>" method="POST"
                         action="/boxes/archive/<%= box._id %>?_method=PUT">

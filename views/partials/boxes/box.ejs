@@ -2,7 +2,10 @@
 
 <div class="box <%= box.colour %>" data-box-id="<%= box._id %>">
 
-    <h2><%= box.title %></h2>
+    <h2> <% if (box.archived) { %>
+        <i data-feather="archive" class="archivedBox"> </i>
+        <% } %>
+        <%= box.title %></h2>
 
     <%- include('./boxMenu') %>
     <%- include('./editBoxForm', { box }) %>

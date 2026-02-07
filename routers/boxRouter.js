@@ -32,6 +32,7 @@ router.post("/", async (req, res) => {
       order: newOrder,
     });
     await box.save();
+    req.session.toastMessage = "boxCreated";
     res.redirect("/");
   } catch (err) {
     console.error("Error creating new Box:", err);
@@ -49,7 +50,7 @@ router.put("/edit/:id", async (req, res) => {
       title: editBoxTitle,
       colour: editBoxColour,
     });
-
+    req.session.toastMessage = "boxUpdated";
     res.redirect("/");
   } catch (error) {
     console.error("Error updating Box:", error);
@@ -66,9 +67,13 @@ router.put("/archive/:id", async (req, res) => {
     await Box.findByIdAndUpdate(req.params.id, {
       archived: !box.archived,
     });
-    console.log("Box Archived!");
-
-    res.redirect("/");
+    if (box.archived) {
+      req.session.toastMessage = "boxUnarchived";
+      res.redirect("/archived");
+    } else {
+      req.session.toastMessage = "boxArchived";
+      res.redirect("/");
+    }
   } catch (error) {
     console.error("Error updating Box:", error);
     res.status(500).send("Failed to update Box");
@@ -172,6 +177,7 @@ router.put("/order/:id/right", async (req, res) => {
 router.delete("/delete/:id", async (req, res) => {
   try {
     await Box.findByIdAndDelete(req.params.id);
+    req.session.toastMessage = "boxDeleted";
     res.redirect("/");
   } catch (error) {
     console.error("Error deleting Box:", error);

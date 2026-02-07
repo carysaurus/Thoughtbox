@@ -70,6 +70,7 @@ router.post("/", async (req, res) => {
     }
 
     await note.save();
+    req.session.toastMessage = "noteCreated";
     res.redirect("/");
   } catch (err) {
     console.error("Error creating new Thought:", err);
@@ -120,6 +121,7 @@ router.put("/edit/:id", async (req, res) => {
 
     await Note.findByIdAndUpdate(req.params.id, updateData);
 
+    req.session.toastMessage = "noteUpdated";
     res.redirect("/");
   } catch (error) {
     console.error("Error updating Box:", error);
@@ -211,9 +213,14 @@ router.put("/archive/:id", async (req, res) => {
     await Note.findByIdAndUpdate(req.params.id, {
       archived: !note.archived,
     });
+    if (note.archived) {
+      req.session.toastMessage = "noteUnarchived";
+      res.redirect("/archived");
+    } else {
+      req.session.toastMessage = "noteArchived";
+      res.redirect("/");
+    }
     console.log("Note Archived!");
-
-    res.redirect("/");
   } catch (error) {
     console.error("Error updating Note:", error);
     res.status(500).send("Failed to update Note");
@@ -226,6 +233,7 @@ router.put("/archive/:id", async (req, res) => {
 router.delete("/delete/:id", async (req, res) => {
   try {
     await Note.findByIdAndDelete(req.params.id);
+    req.session.toastMessage = "noteDeleted";
     res.redirect("/");
   } catch (err) {
     console.error("Error deleting Thought:", err);

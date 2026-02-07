@@ -7,9 +7,10 @@
 @import url("./base/colourThemes.css");
 
 /* page styles */
-@import url("./page.css");
-@import url("./buttons.css");
+@import url("./base/page.css");
+@import url("./base/buttons.css");
 @import url("./auth/auth.css");
+@import url("./base/animations.css");
 
 /* box styles */
 @import url("./boxes/boxes.css");

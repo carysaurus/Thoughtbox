@@ -1,6 +1,6 @@
 // config/noteTypes.js
 
-const noteTypes = ["text", "list", "checkboxes", "image", "links"];
+const noteTypes = ["text", "list", "image"];
 
 module.exports = {
   noteTypes,
