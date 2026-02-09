@@ -29,15 +29,15 @@ Welcome to **Thoughtbox** — a whimsical, web-based notes and ideas management 
 ## Getting Started (Local Development)
 
 1. **Clone the repository:**
-
-git clone https://github.com/carysaurus/Thoughtbox.git
-cd thoughtbox
-
+   ```bash
+   git clone https://github.com/carysaurus/Thoughtbox.git
+   cd thoughtbox
+   ```
 2. **Install dependencies:**
-
-npm install
-
-This will install all required packages, including:
+   ```bash
+   npm install
+   ```
+   This will install all required packages, including:
 
 - ejs
 - express
@@ -48,11 +48,21 @@ This will install all required packages, including:
 - passport
 - passport-local
 
-3. **Start the Server**
+3. **Configure MongoDB**
+
+Ensure MongoDB is running locally on mongodb://localhost:27017
+
+4. **Start the Server**
+
+- Development Mode
 
 npm run dev
 
-4. **Open your Browser:**
+- Production Mode
+
+npm start
+
+3. **Open your Browser:**
 
 The server will start on http://localhost:3000 by default.
 
