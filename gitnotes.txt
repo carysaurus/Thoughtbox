@@ -51,3 +51,6 @@ git push
 Or, one-liner if all changes are tracked:
 
 git commit -am "Update game scaling" && git push
+
+Navigate between branches:
+git checkout main / deploy

@@ -2,22 +2,23 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<script>
-    window.toastMessage = "<%= toastMessage || '' %>";
-    window.userView = "<%= userView || '' %>";
-</script>
 
-
-<%- include('partials/page/head') %>
+<head>
+    <script>
+        window.toastMessage = "<%= toastMessage || '' %>";
+        window.userView = "<%= userView || '' %>";
+    </script>
+    <%- include('partials/page/head') %>
+</head>
 
 <body data-logged-in="<%= user ? 'true' : 'false' %>">
+    <%- include('partials/page/header') %>
     <%- include('partials/page/toast', { toastMessage }) %>
 
     <%- include('partials/auth/login') %>
-    <%- include('partials/page/header') %>
+
 
     <main>
-
         <%- include('partials/notes/noteForm') %>
         <div id="containerBoxes">
             <% if (userView === 'home') { %>
@@ -31,6 +32,7 @@
             </div>
         </div>
     </main>
+
 
     <%- include('partials/page/footer') %>
 
