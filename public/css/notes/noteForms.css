@@ -26,6 +26,7 @@
   background-color: var(--main-background);
   border-radius: 0.25rem;
   position: relative;
+  box-sizing: border-box;
 }
 
 #noteTypeForm {
