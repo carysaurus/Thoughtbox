@@ -39,7 +39,6 @@ npm install
 
 This will install all required packages, including:
 
-- dotenv
 - ejs
 - express
 - express-session
@@ -49,17 +48,12 @@ This will install all required packages, including:
 - passport
 - passport-local
 
-3. **Create a .env file in the project root with the following variables:**
-
-MONGODB_URI=your_mongodb_connection_string
-SESSION_SECRET=your_secret_key
-
-MONGODB_URI → your MongoDB Atlas connection string
-SESSION_SECRET → any long, random string to secure session cookies
-
-4. **Start the Development Server**
+3. **Start the Server**
 
 npm run dev
+
+4. **Open your Browser:**
+
 The server will start on http://localhost:3000 by default.
 
 ---
