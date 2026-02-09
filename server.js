@@ -1,4 +1,5 @@
 // server.js
+require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -17,9 +18,7 @@ const PORT = process.env.PORT || 3000;
 
 app.set("view engine", "ejs");
 
-const mongoURI =
-  process.env.MONGODB_URI ||
-  "mongodb+srv://carysaurus_admin:R74NOkbdXJhO6P5o@thoughtbox.tjujzbl.mongodb.net/?appName=Thoughtbox";
+const mongoURI = process.env.MONGODB_URI;
 
 /* -------------------------------------- */
 /* Middleware */
