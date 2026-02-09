@@ -1,5 +1,5 @@
 // server.js
-require("dotenv").config();
+// require("dotenv").config(); for use on deploy branch
 
 const express = require("express");
 const mongoose = require("mongoose");
@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 3000;
 
 app.set("view engine", "ejs");
 
-const mongoURI = process.env.MONGODB_URI;
+const mongoURI = "mongodb://localhost:27017/thoughtbox";
 
 /* -------------------------------------- */
 /* Middleware */
@@ -33,7 +33,7 @@ app.use(
 app.use(methodOverride("_method"));
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
+    secret: "some secret",
     resave: false,
     saveUninitialized: false,
   }),
@@ -59,7 +59,7 @@ mongoose
     console.log("Connected to MongoDB");
 
     app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
+      console.log(`Server running on http://localhost:${PORT}`);
     });
   })
   .catch((err) => {
